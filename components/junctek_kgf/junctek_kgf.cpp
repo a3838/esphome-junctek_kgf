@@ -154,7 +154,7 @@ void JuncTekKGF::handle_status(const char* buffer)
   }
   if (batteryDischargedEnergy_sensor_)
   {
-      float dischargedEnergy = ampHourTotalUsed * (3.2 * 8) // Nominal voltange on cell * count off cell;
+      float dischargedEnergy = ampHourTotalUsed * (3.2 * 8); // Nominal voltange on cell * count off cell;
       this->batteryDischargedEnergy_sensor_->publish_state(dischargedEnergy);
   }
 
