@@ -23,6 +23,7 @@ from esphome.const import (
     CONF_UPDATE_INTERVAL,
     UNIT_EMPTY,
     UNIT_PERCENT,
+    UNIT_WATT_HOURS,
     ICON_EMPTY,
     ICON_POWER,
     ICON_FLASH,
@@ -30,6 +31,7 @@ from esphome.const import (
     DEVICE_CLASS_CURRENT,
     DEVICE_CLASS_BATTERY,
     DEVICE_CLASS_POWER,
+    DEVICE_CLASS_ENERGY,
     DEVICE_CLASS_BATTERY_CHARGING,
 )
 
@@ -78,7 +80,7 @@ CONFIG_SCHEMA = cv.All(
             cv.Optional(CONF_BATTERY_LEVEL): sensor.sensor_schema(
                 unit_of_measurement=UNIT_PERCENT,
                 icon=ICON_PERCENT,
-                accuracy_decimals=1,
+                accuracy_decimals=0,
                 device_class=DEVICE_CLASS_BATTERY,
                 state_class=STATE_CLASS_MEASUREMENT,
             ),
@@ -96,10 +98,18 @@ CONFIG_SCHEMA = cv.All(
                 accuracy_decimals=2,
             ),
             cv.Optional('batteryChargedEnergy'): sensor.sensor_schema(
+                unit_of_measurement=UNIT_WATT_HOURS,
+                icon="mdi:lightning-bolt",
                 accuracy_decimals=0,
+                device_class=DEVICE_CLASS_ENERGY,
+                state_class=STATE_CLASS_TOTAL_INCREASING,
             ),
             cv.Optional('batteryDischargedEnergy'): sensor.sensor_schema(
+                unit_of_measurement=UNIT_WATT_HOURS,
+                icon="mdi:lightning-bolt",
                 accuracy_decimals=0,
+                device_class=DEVICE_CLASS_ENERGY,
+                state_class=STATE_CLASS_TOTAL_INCREASING,
             ),
             cv.Optional(CONF_INVERT_CURRENT, default=False): cv.boolean,
         }
