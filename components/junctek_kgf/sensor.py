@@ -45,6 +45,7 @@ TYPES = [
     CONF_TEMPERATURE,
     CONF_DIRECTION,
     'ampHourRemaining',
+    'ampHourTotalUsed',
 ]
 
 CONF_INVERT_CURRENT="invert_current"
@@ -90,6 +91,9 @@ CONFIG_SCHEMA = cv.All(
                 accuracy_decimals=0,
             ),
             cv.Optional('ampHourRemaining'): sensor.sensor_schema(
+                accuracy_decimals=0,
+            ),
+            cv.Optional('ampHourTotalUsed'): sensor.sensor_schema(
                 accuracy_decimals=0,
             ),
             cv.Optional(CONF_INVERT_CURRENT, default=False): cv.boolean,

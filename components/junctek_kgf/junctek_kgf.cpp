@@ -135,6 +135,8 @@ void JuncTekKGF::handle_status(const char* buffer)
       this->direction_sensor_->publish_state(direction);
   if (ampHourRemaining_sensor_)
       this->ampHourRemaining_sensor_->publish_state(ampHourRemaining);
+  if (ampHourTotalUsed_sensor_)
+      this->ampHourTotalUsed_sensor_->publish_state(ampHourTotalUsed);
 
 
   this->last_stats_ = millis();

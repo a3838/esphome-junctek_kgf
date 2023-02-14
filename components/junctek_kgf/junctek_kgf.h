@@ -18,6 +18,7 @@ public:
   void set_temperature_sensor(sensor::Sensor *temperature) { temperature_ = temperature; }
   void set_direction_sensor(sensor::Sensor *direction_sensor) { direction_sensor_ = direction_sensor; }
   void set_ampHourRemaining_sensor(sensor::Sensor *ampHourRemaining_sensor) { ampHourRemaining_sensor_ = ampHourRemaining_sensor; }
+  void set_ampHourTotalUsed_sensor(sensor::Sensor *ampHourTotalUsed_sensor) { ampHourTotalUsed_sensor_ = ampHourTotalUsed_sensor; }
 
   void set_battery_level_sensor(sensor::Sensor *battery_level_sensor) { battery_level_sensor_ = battery_level_sensor; }
   void dump_config() override;
@@ -42,6 +43,7 @@ protected:
   sensor::Sensor* temperature_{nullptr};
   sensor::Sensor* direction_sensor_{nullptr};
   sensor::Sensor* ampHourRemaining_sensor_{nullptr};
+  sensor::Sensor* ampHourTotalUsed_sensor_{nullptr};
 
   static constexpr int MAX_LINE_LEN = 120;
   std::array<char, MAX_LINE_LEN> line_buffer_;
