@@ -8,7 +8,7 @@ from esphome.const import (
     CONF_INPUT,
     CONF_NUMBER,
     CONF_HARDWARE_UART,
-    CONF_TEMPERATURE,
+    CONF_POWER,
     CONF_VOLTAGE,
     CONF_CURRENT,
     CONF_BATTERY_LEVEL,
@@ -23,12 +23,12 @@ from esphome.const import (
     UNIT_EMPTY,
     UNIT_PERCENT,
     ICON_EMPTY,
-    ICON_THERMOMETER,
+    ICON_POWER,
     ICON_FLASH,
     ICON_PERCENT,
     DEVICE_CLASS_CURRENT,
     DEVICE_CLASS_BATTERY,
-    DEVICE_CLASS_TEMPERATURE,
+    DEVICE_CLASS_POWER,
     DEVICE_CLASS_BATTERY_CHARGING,
 )
 
@@ -85,7 +85,11 @@ CONFIG_SCHEMA = cv.All(
                 accuracy_decimals=0,
             ),
             cv.Optional('batteryPower'): sensor.sensor_schema(
-                accuracy_decimals=2,
+                unit_of_measurement=UNIT_WATT,
+                icon=ICON_POWER,
+                accuracy_decimals=0,
+                device_class=DEVICE_CLASS_POWER,
+                state_class=STATE_CLASS_MEASUREMENT,
             ),
             cv.Optional('batteryLifeMinutes'): sensor.sensor_schema(
                 accuracy_decimals=2,
