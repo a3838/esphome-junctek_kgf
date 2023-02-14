@@ -43,7 +43,7 @@ TYPES = [
     CONF_CURRENT,
     CONF_BATTERY_LEVEL,
     CONF_DIRECTION,
-    'powerInWatts',
+    'batteryPower',
     'batteryLifeMinutes',
     'batteryChargedEnergy',
     'batteryDischargedEnergy',
@@ -84,7 +84,7 @@ CONFIG_SCHEMA = cv.All(
             cv.Optional(CONF_DIRECTION): sensor.sensor_schema(
                 accuracy_decimals=0,
             ),
-            cv.Optional('powerInWatts'): sensor.sensor_schema(
+            cv.Optional('batteryPower'): sensor.sensor_schema(
                 accuracy_decimals=2,
             ),
             cv.Optional('batteryLifeMinutes'): sensor.sensor_schema(
