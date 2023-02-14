@@ -16,8 +16,8 @@ public:
   void set_voltage_sensor(sensor::Sensor *voltage_sensor) { voltage_sensor_ = voltage_sensor; }
   void set_current_sensor(sensor::Sensor *current_sensor) { current_sensor_ = current_sensor; }
   void set_temperature_sensor(sensor::Sensor *temperature) { temperature_ = temperature; }
-  void set_direction_sensor(sensor::Sensor *direction_sensor) {direction_sensor_ = direction_sensor; }
-  void set_ampHourRemaining_sensor(sensor::Sensor *ampHourRemaining_sensor) {ampHourRemaining_sensor_ = ampHourRemaining_sensor; }
+  void set_direction_sensor(sensor::Sensor *direction_sensor) { direction_sensor_ = direction_sensor; }
+  void set_ampHourRemaining_sensor(sensor::Sensor *ampHourRemaining_sensor) { ampHourRemaining_sensor_ = ampHourRemaining_sensor; }
 
   void set_battery_level_sensor(sensor::Sensor *battery_level_sensor) { battery_level_sensor_ = battery_level_sensor; }
   void dump_config() override;
