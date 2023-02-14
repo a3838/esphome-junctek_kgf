@@ -49,8 +49,8 @@ TYPES = [
     'wattHourRemaining',
     'powerInWatts',
     'batteryLifeMinutes',
-    'batteryChargedEnery',
-    'batteryDischargedEnery',
+    'batteryChargedEnergy',
+    'batteryDischargedEnergy',
 ]
 
 CONF_INVERT_CURRENT="invert_current"
@@ -110,10 +110,10 @@ CONFIG_SCHEMA = cv.All(
             cv.Optional('batteryLifeMinutes'): sensor.sensor_schema(
                 accuracy_decimals=2,
             ),
-            cv.Optional('batteryChargedEnery'): sensor.sensor_schema(
+            cv.Optional('batteryChargedEnergy'): sensor.sensor_schema(
                 accuracy_decimals=0,
             ),
-            cv.Optional('batteryDischargedEnery'): sensor.sensor_schema(
+            cv.Optional('batteryDischargedEnergy'): sensor.sensor_schema(
                 accuracy_decimals=0,
             ),
             cv.Optional(CONF_INVERT_CURRENT, default=False): cv.boolean,
