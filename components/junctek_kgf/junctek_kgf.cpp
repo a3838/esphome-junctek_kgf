@@ -131,8 +131,8 @@ void JuncTekKGF::handle_status(const char* buffer)
   }
   if (direction_sensor_)
       this->direction_sensor_->publish_state(direction);
-  if (batteryLifeMinutes_sensor_)
-      this->batteryLifeMinutes_sensor_->publish_state(batteryLifeMinutes);
+  if (batteryLifeTime_sensor_)
+      this->batteryLifeTime_sensor_->publish_state(batteryLifeTime);
   if (batteryPower_sensor_)
   {
       float power = voltage * amps;
