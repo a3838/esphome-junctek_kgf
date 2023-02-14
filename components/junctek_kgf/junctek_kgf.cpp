@@ -133,7 +133,7 @@ void JuncTekKGF::handle_status(const char* buffer)
     this->temperature_->publish_state(temperature);
   if (direction_sensor_)
       this->direction_sensor_->publish_state(direction);
-  if (ampHourRemaining_sensor)
+  if (ampHourRemaining_sensor_)
       this->ampHourRemaining_sensor_->publish_state(ampHourRemaining);
 
 
