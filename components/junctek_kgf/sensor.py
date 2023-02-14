@@ -87,7 +87,6 @@ CONFIG_SCHEMA = cv.All(
             ),
             cv.Optional(CONF_DIRECTION): sensor.sensor_schema(
                 accuracy_decimals=0,
-                device_class=DEVICE_CLASS_BATTERY_CHARGING,
             ),
             cv.Optional(CONF_INVERT_CURRENT, default=False): cv.boolean,
         }
