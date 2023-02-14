@@ -44,6 +44,7 @@ TYPES = [
     CONF_BATTERY_LEVEL,
     CONF_TEMPERATURE,
     CONF_DIRECTION,
+    'ampHourRemaining',
 ]
 
 CONF_INVERT_CURRENT="invert_current"
@@ -86,6 +87,9 @@ CONFIG_SCHEMA = cv.All(
                 state_class=STATE_CLASS_MEASUREMENT,
             ),
             cv.Optional(CONF_DIRECTION): sensor.sensor_schema(
+                accuracy_decimals=0,
+            ),
+            cv.Optional('ampHourRemaining'): sensor.sensor_schema(
                 accuracy_decimals=0,
             ),
             cv.Optional(CONF_INVERT_CURRENT, default=False): cv.boolean,
