@@ -41,7 +41,7 @@ int getval(const char*& cursor)
   }
   return *val;
 }
-  
+
 
 JuncTekKGF::JuncTekKGF(unsigned address, bool invert_current)
   : address_(address)
@@ -99,7 +99,7 @@ void JuncTekKGF::handle_status(const char* buffer)
   const int address = getval(cursor);
   if (address != this->address_)
     return;
- 
+
   const int checksum = getval(cursor);
   if (! verify_checksum(checksum, cursor))
     return;
@@ -117,6 +117,7 @@ void JuncTekKGF::handle_status(const char* buffer)
   const int batteryLifeMinutes = getval(cursor);
   const float batteryInternalOhms = getval(cursor) / 100.0;
   ESP_LOGV("JunkTekKGF", "Recv %f %f %d %f %f %f", voltage, ampHourRemaining, direction, powerInWatts, amps, temperature);
+
   if (voltage_sensor_)
     this->voltage_sensor_->publish_state(voltage);
   if (battery_level_sensor_ && this->battery_capacity_)
@@ -130,7 +131,8 @@ void JuncTekKGF::handle_status(const char* buffer)
   }
   if (temperature_)
     this->temperature_->publish_state(temperature);
-
+  if (direction_sensor_)
+      this->direction_sensor_->publish_state(direction);
   this->last_stats_ = millis();
 }
 
@@ -139,7 +141,7 @@ void JuncTekKGF::handle_line()
   //A failure in parsing will return back to here with a non-zero value
   if (setjmp(parsing_failed))
     return;
-  
+
   const char* buffer = &this->line_buffer_[0];
   if (buffer[0] != ':' || buffer[1] != 'r')
     return;
