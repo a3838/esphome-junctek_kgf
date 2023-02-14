@@ -107,7 +107,7 @@ void JuncTekKGF::handle_status(const char* buffer)
   const float voltage = getval(cursor) / 100.0;
   const float amps = getval(cursor) / 100.0;
   const float ampHourRemaining = getval(cursor) / 1000.0;
-  const float ampHourTotalUsed = getval(cursor) / 100.00;
+  const float ampHourTotalUsed = getval(cursor) / 1000.00;
   const float wattHourRemaining = getval(cursor) / 100.0;
   const float runtimeSeconds = getval(cursor);
   const float temperature = getval(cursor) - 100.0;
@@ -137,6 +137,8 @@ void JuncTekKGF::handle_status(const char* buffer)
       this->ampHourRemaining_sensor_->publish_state(ampHourRemaining);
   if (ampHourTotalUsed_sensor_)
       this->ampHourTotalUsed_sensor_->publish_state(ampHourTotalUsed);
+  if (wattHourRemaining_sensor_)
+      this->wattHourRemaining_sensor_->publish_state(wattHourRemaining);
 
 
   this->last_stats_ = millis();
