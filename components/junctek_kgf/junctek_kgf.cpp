@@ -141,6 +141,8 @@ void JuncTekKGF::handle_status(const char* buffer)
       this->wattHourRemaining_sensor_->publish_state(wattHourRemaining);
   if (powerInWatts_sensor_)
       this->powerInWatts_sensor_->publish_state(powerInWatts);
+  if (batteryLifeMinutes_sensor_)
+      this->batteryLifeMinutes_sensor_->publish_state(batteryLifeMinutes);
 
 
   this->last_stats_ = millis();
