@@ -41,7 +41,7 @@ TYPES = [
     CONF_CURRENT,
     CONF_BATTERY_LEVEL,
     CONF_TEMPERATURE,
-    CONF_DIRECTION,
+    'direction'
 ]
 
 CONF_INVERT_CURRENT="invert_current"
