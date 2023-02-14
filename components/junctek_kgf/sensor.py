@@ -12,6 +12,7 @@ from esphome.const import (
     CONF_VOLTAGE,
     CONF_CURRENT,
     CONF_BATTERY_LEVEL,
+    CONF_BATTERY_CHARGING,
 
     DEVICE_CLASS_VOLTAGE,
     STATE_CLASS_MEASUREMENT,
@@ -28,6 +29,7 @@ from esphome.const import (
     DEVICE_CLASS_CURRENT,
     DEVICE_CLASS_BATTERY,
     DEVICE_CLASS_TEMPERATURE,
+    BATTERY_CHARGING,
 )
 
 
@@ -41,7 +43,7 @@ TYPES = [
     CONF_CURRENT,
     CONF_BATTERY_LEVEL,
     CONF_TEMPERATURE,
-    'direction'
+    BATTERY_CHARGING,
 ]
 
 CONF_INVERT_CURRENT="invert_current"
@@ -83,8 +85,9 @@ CONFIG_SCHEMA = cv.All(
                 device_class=DEVICE_CLASS_TEMPERATURE,
                 state_class=STATE_CLASS_MEASUREMENT,
             ),
-            cv.Optional('direction'): sensor.sensor_schema(
+            cv.Optional(BATTERY_CHARGING): sensor.sensor_schema(
                 accuracy_decimals=0,
+                device_class=DEVICE_CLASS_BATTERY,
             ),
             cv.Optional(CONF_INVERT_CURRENT, default=False): cv.boolean,
         }
