@@ -97,7 +97,7 @@ CONFIG_SCHEMA = cv.All(
             cv.Optional('ampHourTotalUsed'): sensor.sensor_schema(
                 accuracy_decimals=2,
             ),
-            vc.Optional('wattHourRemaining'): sensor.sensor_schema(
+            cv.Optional('wattHourRemaining'): sensor.sensor_schema(
                 accuracy_decimals=2,
             ),
             cv.Optional(CONF_INVERT_CURRENT, default=False): cv.boolean,
