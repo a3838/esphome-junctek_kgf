@@ -19,6 +19,7 @@ from esphome.const import (
     UNIT_VOLT,
     UNIT_CELSIUS,
     UNIT_AMPERE,
+    UNIT_WATT,
     CONF_UPDATE_INTERVAL,
     UNIT_EMPTY,
     UNIT_PERCENT,
