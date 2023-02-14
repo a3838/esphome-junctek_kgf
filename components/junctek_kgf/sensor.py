@@ -47,6 +47,7 @@ TYPES = [
     'ampHourRemaining',
     'ampHourTotalUsed',
     'wattHourRemaining',
+    'powerInWatts',
 ]
 
 CONF_INVERT_CURRENT="invert_current"
@@ -98,6 +99,9 @@ CONFIG_SCHEMA = cv.All(
                 accuracy_decimals=2,
             ),
             cv.Optional('wattHourRemaining'): sensor.sensor_schema(
+                accuracy_decimals=2,
+            ),
+            cv.Optional('powerInWatts'): sensor.sensor_schema(
                 accuracy_decimals=2,
             ),
             cv.Optional(CONF_INVERT_CURRENT, default=False): cv.boolean,
