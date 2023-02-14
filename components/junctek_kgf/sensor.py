@@ -25,14 +25,17 @@ from esphome.const import (
     UNIT_EMPTY,
     UNIT_PERCENT,
     UNIT_WATT_HOURS,
+    UNIT_MINUTE,
     ICON_EMPTY,
     ICON_POWER,
     ICON_FLASH,
     ICON_PERCENT,
+    ICON_TIMER,
     DEVICE_CLASS_CURRENT,
     DEVICE_CLASS_BATTERY,
     DEVICE_CLASS_POWER,
     DEVICE_CLASS_ENERGY,
+    DEVICE_CLASS_DURATION,
     DEVICE_CLASS_BATTERY_CHARGING,
 )
 
@@ -48,7 +51,7 @@ TYPES = [
     CONF_BATTERY_LEVEL,
     CONF_DIRECTION,
     'batteryPower',
-    'batteryLifeMinutes',
+    'batteryLifeTime',
     'batteryChargedEnergy',
     'batteryDischargedEnergy',
 ]
@@ -95,8 +98,12 @@ CONFIG_SCHEMA = cv.All(
                 device_class=DEVICE_CLASS_POWER,
                 state_class=STATE_CLASS_MEASUREMENT,
             ),
-            cv.Optional('batteryLifeMinutes'): sensor.sensor_schema(
+            cv.Optional('batteryLifeTime'): sensor.sensor_schema(
+                unit_of_measurement=UNIT_MINUTE,
+                icon=ICON_TIMER,
                 accuracy_decimals=2,
+                device_class=DEVICE_CLASS_DURATION,
+                state_class=STATE_CLASS_MEASUREMENT,
             ),
             cv.Optional('batteryChargedEnergy'): sensor.sensor_schema(
                 unit_of_measurement=UNIT_WATT_HOURS,
