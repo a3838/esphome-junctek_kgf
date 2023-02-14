@@ -83,6 +83,9 @@ CONFIG_SCHEMA = cv.All(
                 device_class=DEVICE_CLASS_TEMPERATURE,
                 state_class=STATE_CLASS_MEASUREMENT,
             ),
+            cv.Optional('direction'): sensor.sensor_schema(
+                accuracy_decimals=0,
+            ),
             cv.Optional(CONF_INVERT_CURRENT, default=False): cv.boolean,
         }
     ).extend(uart.UART_DEVICE_SCHEMA)
