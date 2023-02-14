@@ -42,11 +42,7 @@ TYPES = [
     CONF_VOLTAGE,
     CONF_CURRENT,
     CONF_BATTERY_LEVEL,
-    CONF_TEMPERATURE,
     CONF_DIRECTION,
-    'ampHourRemaining',
-    'ampHourTotalUsed',
-    'wattHourRemaining',
     'powerInWatts',
     'batteryLifeMinutes',
     'batteryChargedEnergy',
@@ -85,24 +81,8 @@ CONFIG_SCHEMA = cv.All(
                 device_class=DEVICE_CLASS_BATTERY,
                 state_class=STATE_CLASS_MEASUREMENT,
             ),
-            cv.Optional(CONF_TEMPERATURE): sensor.sensor_schema(
-                unit_of_measurement=UNIT_CELSIUS,
-                icon=ICON_THERMOMETER,
-                accuracy_decimals=0,
-                device_class=DEVICE_CLASS_TEMPERATURE,
-                state_class=STATE_CLASS_MEASUREMENT,
-            ),
             cv.Optional(CONF_DIRECTION): sensor.sensor_schema(
                 accuracy_decimals=0,
-            ),
-            cv.Optional('ampHourRemaining'): sensor.sensor_schema(
-                accuracy_decimals=2,
-            ),
-            cv.Optional('ampHourTotalUsed'): sensor.sensor_schema(
-                accuracy_decimals=2,
-            ),
-            cv.Optional('wattHourRemaining'): sensor.sensor_schema(
-                accuracy_decimals=2,
             ),
             cv.Optional('powerInWatts'): sensor.sensor_schema(
                 accuracy_decimals=2,

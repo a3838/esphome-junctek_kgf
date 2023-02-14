@@ -129,24 +129,15 @@ void JuncTekKGF::handle_status(const char* buffer)
       adjustedCurrent *= -1;
     current_sensor_->publish_state(adjustedCurrent);
   }
-  if (temperature_)
-    this->temperature_->publish_state(temperature);
   if (direction_sensor_)
       this->direction_sensor_->publish_state(direction);
-  if (ampHourRemaining_sensor_)
-      this->ampHourRemaining_sensor_->publish_state(ampHourRemaining);
-  if (ampHourTotalUsed_sensor_)
-      this->ampHourTotalUsed_sensor_->publish_state(ampHourTotalUsed);
-  if (wattHourRemaining_sensor_)
-      this->wattHourRemaining_sensor_->publish_state(wattHourRemaining);
+  if (batteryLifeMinutes_sensor_)
+      this->batteryLifeMinutes_sensor_->publish_state(batteryLifeMinutes);
   if (powerInWatts_sensor_)
   {
-      //this->powerInWatts_sensor_->publish_state(powerInWatts);
       float power = voltage * amps;
       this->powerInWatts_sensor_->publish_state(power);
   }
-  if (batteryLifeMinutes_sensor_)
-      this->batteryLifeMinutes_sensor_->publish_state(batteryLifeMinutes);
   if (batteryChargedEnergy_sensor_)
   {
       float chargedEnergy = wattHourRemaining;

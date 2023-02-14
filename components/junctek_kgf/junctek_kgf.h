@@ -15,11 +15,7 @@ public:
 
   void set_voltage_sensor(sensor::Sensor *voltage_sensor) { voltage_sensor_ = voltage_sensor; }
   void set_current_sensor(sensor::Sensor *current_sensor) { current_sensor_ = current_sensor; }
-  void set_temperature_sensor(sensor::Sensor *temperature) { temperature_ = temperature; }
   void set_direction_sensor(sensor::Sensor *direction_sensor) { direction_sensor_ = direction_sensor; }
-  void set_ampHourRemaining_sensor(sensor::Sensor *ampHourRemaining_sensor) { ampHourRemaining_sensor_ = ampHourRemaining_sensor; }
-  void set_ampHourTotalUsed_sensor(sensor::Sensor *ampHourTotalUsed_sensor) { ampHourTotalUsed_sensor_ = ampHourTotalUsed_sensor; }
-  void set_wattHourRemaining_sensor(sensor::Sensor *wattHourRemaining_sensor) { wattHourRemaining_sensor_ = wattHourRemaining_sensor; }
   void set_powerInWatts_sensor(sensor::Sensor *powerInWatts_sensor) { powerInWatts_sensor_ = powerInWatts_sensor; }
   void set_batteryLifeMinutes_sensor(sensor::Sensor *batteryLifeMinutes_sensor) { batteryLifeMinutes_sensor_ = batteryLifeMinutes_sensor; }
   void set_batteryChargedEnergy_sensor(sensor::Sensor *batteryChargedEnergy_sensor) { batteryChargedEnergy_sensor_ = batteryChargedEnergy_sensor; }
@@ -45,11 +41,7 @@ protected:
   sensor::Sensor* voltage_sensor_{nullptr};
   sensor::Sensor* current_sensor_{nullptr};
   sensor::Sensor* battery_level_sensor_{nullptr};
-  sensor::Sensor* temperature_{nullptr};
   sensor::Sensor* direction_sensor_{nullptr};
-  sensor::Sensor* ampHourRemaining_sensor_{nullptr};
-  sensor::Sensor* ampHourTotalUsed_sensor_{nullptr};
-  sensor::Sensor* wattHourRemaining_sensor_{nullptr};
   sensor::Sensor* powerInWatts_sensor_{nullptr};
   sensor::Sensor* batteryLifeMinutes_sensor_{nullptr};
   sensor::Sensor* batteryChargedEnergy_sensor_{nullptr};
