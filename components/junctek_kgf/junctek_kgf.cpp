@@ -143,7 +143,7 @@ void JuncTekKGF::handle_status(const char* buffer)
   {
       //this->powerInWatts_sensor_->publish_state(powerInWatts);
       float power = voltage * amps;
-      this->powerInWatts_sensor_->publish_statep(power);
+      this->powerInWatts_sensor_->publish_state(power);
   }
   if (batteryLifeMinutes_sensor_)
       this->batteryLifeMinutes_sensor_->publish_state(batteryLifeMinutes);
